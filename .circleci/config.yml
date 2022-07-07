@@ -1,0 +1,42 @@
+version: 2.1
+
+jobs:
+    build_frontend:
+
+      docker:
+        - image: circleci/node:13.8.0
+
+      steps:
+        - checkout
+        - run: cd frontend
+        - run:
+            name: npm i
+        - save_cache:
+              key: "npm_packages"
+              paths: 
+                - /src/node/modules
+        - run: npm run lint
+
+
+    build_backend:
+
+      docker:
+        - image: circleci/node:13.8.0
+
+      steps:
+        - checkout
+        - run: cd backend
+        - run:
+            name: npm i
+        - restore_cache:
+              key: "npm_packages"
+        - run: npm run lint
+
+workflows:
+    
+    default:
+      
+      jobs:
+        - build_frontend
+        - build_backend
+
