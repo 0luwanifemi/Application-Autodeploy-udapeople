@@ -9,8 +9,7 @@ jobs:
       steps:
         - checkout
         - run: cd frontend
-        - run:
-            name: npm i
+        - run: npm i
         - save_cache:
               key: "npm_packages"
               paths: 
@@ -26,8 +25,7 @@ jobs:
       steps:
         - checkout
         - run: cd backend
-        - run:
-            name: npm i
+        - run: npm i
         - restore_cache:
               key: "npm_packages"
         - run: npm run lint
