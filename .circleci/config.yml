@@ -210,7 +210,7 @@ jobs:
         steps:
             - checkout
             - restore_cache:
-              keys: [backend-build]
+                keys: [backend-build]
             - run: 
                 name: Run Migrations
                 command: |
@@ -244,7 +244,7 @@ jobs:
                 at: ~/
             - run:
                 name: Install dependencies
-                commmand: |
+                command: |
                   apk add --update ansible
                   npm install
                   yum install -y tar gzip
