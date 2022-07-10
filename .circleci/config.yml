@@ -256,7 +256,7 @@ jobs:
                     --query 'Reservations[*].Instances[*].PublicIpAddress' \)
                   export API_URL="http://${BACKEND_IP}:3030"
                   echo "API_URL = ${API_URL}"
-                  echo API_URL="http://${BACKEND_IP}:3030" >> frontend/.env
+                  echo "API_URL=http://${BACKEND_IP}:3030" >> frontend/.env
                   cat frontend/.env
             - run:
                 name: Deploy frontend objects
@@ -290,7 +290,7 @@ jobs:
             - run:
                 name: Install dependencies
                 command: |
-                  pip install aws cli
+                  apk add --update nodejs npm
                   apk add --update --no-cache tar gzip ansible curl aws-cli
             - run:
                 name: Deploy backend
