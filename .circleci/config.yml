@@ -322,13 +322,12 @@ jobs:
             - run:
                 name: Get backend url
                 command: |
-                  BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
-                  URL="http://${BACKEND_IP}:3030"
+                  export BACKEND_IP=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
+                  export API_URL="http://${BACKEND_IP}:3030" 
+                  echo "${API_URL}"
             - run:
                 name: Backend smoke test.
                 command: |
-                  URL="http://${BACKEND_IP}:3030"
-                  echo ${URL}
                   if curl -s $API_URL/api/status | grep "ok" 
                   then
                     return 0
