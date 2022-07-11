@@ -29,15 +29,15 @@ commands:
               name: Revert migrations
               when: on_fail
               command: |
-                  SUCCESS=$(curl --insecure  https://kvdb.io/NNBzigyMxCZ1QA9EWe6qJy/migration_<< parameters.workflow_id >>)
+                  #SUCCESS=$(curl --insecure  https://kvdb.io/NNBzigyMxCZ1QA9EWe6qJy/migration_<< parameters.workflow_id >>)
                   #Logic for reverting the database state
-                  if (( $SUCCESS == 1 ));
-                  then
-                      cd ~/project/backend
-                      npm install
-                      npm run build
-                      npm run migration:revert
-                  fi
+                  #if (( $SUCCESS == 1 ));
+                  #then
+                  cd ~/project/backend
+                  npm install
+                  npm run build
+                  npm run migration:revert
+                  #fi
               
     
 jobs:
@@ -345,11 +345,11 @@ jobs:
                   else
                     exit 1
                   fi
-            - destroy-env:
-                workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
-                event: on_fail
-            - revert-migrations:
-                workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
+            #- destroy-env:
+                #workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
+                #event: on_fail
+            #- revert-migrations:
+                #workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
 
 workflows:
