@@ -42,7 +42,7 @@
 - name: 'install ts-node config paths'
   become: yes
   shell: |
-    npm --save-dev tsconfig-paths
+    npm install --save-dev tsconfig-paths
 
 - name: 'extract zipped backend'
   become: yes
