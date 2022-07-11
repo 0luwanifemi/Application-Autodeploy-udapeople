@@ -39,13 +39,10 @@
     production: yes
     state: present
 
-- name: 'install ts-node config paths'
-  become: true
-  npm:
-    name: --save-dev tsconfig-paths
-    global: yes
-    production: yes
-    state: present
+name: 'install ts-node config paths'
+  become: yes
+  shell: |
+    npm --save-dev tsconfig-paths
 
 - name: 'extract zipped backend'
   become: yes
