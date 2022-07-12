@@ -44,18 +44,26 @@
   shell: |
     npm install --save-dev tsconfig-paths
 
-- name: 'extract zipped backend'
+#- name: 'extract zipped backend'
+#  become: yes
+#  copy:
+#    src: ~/project/artifact.tar.gz
+#    dest: /home/ubuntu/artifact.tar.gz
+  
+- name: extract artifact
   become: yes
-  copy:
-    src: ~/project/artifact.tar.gz
-    dest: /home/ubuntu/artifact.tar.gz
+  unarchive:
+    src: files/artifact.tar.gz
+    dest: .
 
 - name: 'run node application'
   become: yes
   shell: |
-    cd /home/ubuntu
-    tar xzvf artifact.tar.gz 
-    npm install
-    npm run build
+#    #cd /home/ubuntu
+    #tar xzvf artifact.tar.gz 
+    #npm install
+    #npm run build
     #pm2 stop default
-    sudo pm2 start npm -- start
+    #sudo pm2 start npm -- start
+    pm2 stop all
+    pm2 start npm -- start
