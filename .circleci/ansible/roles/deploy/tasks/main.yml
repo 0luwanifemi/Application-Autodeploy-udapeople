@@ -59,11 +59,11 @@
 - name: 'run node application'
   become: yes
   shell: |
-#    #cd /home/ubuntu
+    pm2 stop all
+    pm2 start npm -- start
+    #cd /home/ubuntu
     #tar xzvf artifact.tar.gz 
     #npm install
     #npm run build
     #pm2 stop default
     #sudo pm2 start npm -- start
-    pm2 stop all
-    pm2 start npm -- start
