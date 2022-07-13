@@ -408,8 +408,8 @@ workflows:
         - deploy-infrastructure:
             requires: [test_frontend, test_backend, scan_frontend, scan_backend]
             filters:
-            branches:
-              only: [main]
+                branches:
+                    only: [main]
               
         - configure-infrastructure:
             requires: [deploy-infrastructure]
