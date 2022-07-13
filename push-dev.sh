@@ -2,4 +2,4 @@
 
 git add .
 git commit -m "config and deploy commit"
-git push -u dev-test
+git push -u origin dev-test
