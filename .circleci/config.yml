@@ -45,7 +45,7 @@ jobs:
     build_frontend:
       
       docker:
-          - image: cimg/node:18.4.0
+          - image: cimg/node:13.8.0
       steps:
           - checkout
           - restore_cache:
@@ -63,7 +63,7 @@ jobs:
     build_backend:
       
       docker: 
-          - image: cimg/node:18.4.0
+          - image: cimg/node:13.8.0
       steps:
           - checkout
           - restore_cache:
@@ -81,7 +81,7 @@ jobs:
     test_frontend:
 
       docker:
-          - image: cimg/node:18.4.0
+          - image: cimg/node:13.8.0
       steps:
           - checkout
           - restore_cache:
@@ -96,7 +96,7 @@ jobs:
     test_backend:
 
       docker:
-          - image: cimg/node:18.4.0
+          - image: cimg/node:13.8.0
       steps:
           - checkout
           - restore_cache:
@@ -111,7 +111,7 @@ jobs:
     scan_frontend: 
 
       docker:
-          - image: cimg/node:18.4.0
+          - image: cimg/node:13.8.0
       steps:
           - checkout
           - restore_cache:
@@ -126,7 +126,7 @@ jobs:
     scan_backend: 
 
       docker:
-          - image: cimg/node:18.4.0
+          - image: cimg/node:13.8.0
       steps:
           - checkout
           - restore_cache:
@@ -217,7 +217,7 @@ jobs:
     run-migrations: 
 
         docker:
-            - image: cimg/node:18.4.0
+            - image: cimg/node:13.8.0
         steps:
             - checkout
             - run:
