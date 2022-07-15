@@ -240,7 +240,7 @@ jobs:
                   cat migrations_dump.txt
                   
                   #Send migration results to kvdb
-                  if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
+                  if grep -q "migrations" ~/project/backend/migrations_dump.txt
                   then
                       echo "Database migration has been executed successfully"
                       curl https://kvdb.io/NNBzigyMxCZ1QA9EWe6qJy/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
