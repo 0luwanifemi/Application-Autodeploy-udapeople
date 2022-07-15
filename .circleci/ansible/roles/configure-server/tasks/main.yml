@@ -4,11 +4,6 @@
   apt:
     update_cache: yes
 
-#- name: "upgrade packages."
-  #become: true
-  #apt:
-    #upgrade: "yes"
-
 - name: "Remove dependencies that are no longer required"
   become: true
   apt:
@@ -39,11 +34,3 @@
     global: yes
     production: yes
     state: present
-
-#- name: install pm2
-  #become: yes
-  #npm:
-    #name: pm2
-    #global: yes
-    #state: latest
-    #production: yes
