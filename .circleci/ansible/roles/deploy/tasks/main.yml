@@ -43,12 +43,6 @@
   become: yes
   shell: |
     npm install --save-dev tsconfig-paths
-
-#- name: 'extract zipped backend'
-#  become: yes
-#  copy:
-#    src: ~/project/artifact.tar.gz
-#    dest: /home/ubuntu/artifact.tar.gz
   
 - name: extract artifact
   become: yes
