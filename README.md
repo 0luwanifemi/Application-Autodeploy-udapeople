@@ -1,2 +1,1 @@
-# project3-udapeople
-ci-cd exercise 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/0luwanifemi/Application-Autodeploy-udapeople/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/0luwanifemi/Application-Autodeploy-udapeople/tree/main)
